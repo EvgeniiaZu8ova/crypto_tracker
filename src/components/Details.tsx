@@ -39,7 +39,7 @@ export const Details = () => {
               price: +el.price,
 
               //el.time is divided by 1000 as api provides timestamp in ms and dayjs.unix expects to receive time in s
-              time: dayjs.unix(el.time / 1000).format("DD/MM/YYYY, HH:mm:ss"),
+              time: dayjs.unix(el.time / 1000).format("DD/MM, HH:mm:ss"),
             };
           })
         );
@@ -91,7 +91,7 @@ export const Details = () => {
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="time" interval="preserveStartEnd" />
             <YAxis
-              domain={["dataMin - 0.5", "dataMax + 0.5"]}
+              domain={["dataMin", "dataMax"]}
               tickFormatter={(value: number) => value.toFixed(2)}
             />
             <Tooltip />
